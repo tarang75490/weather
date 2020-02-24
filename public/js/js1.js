@@ -1,7 +1,4 @@
 
-console.log('from Javascript')
-
-
 // fetch app (supported by client side javacript )
 // fetch('http://localhost:3000/weather?location='+location).then((response) =>{
 //     response.json().then((error,data) =>{
