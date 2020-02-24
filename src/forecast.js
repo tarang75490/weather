@@ -1,0 +1,20 @@
+
+const request  =require('request')
+
+const  forecast = (latitude,longitude,callback) => {
+    const weatherUrl = 'https://api.darksky.net/forecast/cce3c288a60191473685505eafcc0624/'+latitude+','+longitude+'?units=si'
+    request({url : weatherUrl , json:true},(error,response) =>{
+        if(error){
+            callback("Unable to Connect to Weather services",undefined)
+        }
+        else if (response.body.error){
+            callback('Please Check the Weather Location. Missing Weather Location Or Not Found',undefined)
+        }
+        else{
+            const data1 = response.body
+            const forecast = (data1.daily.data)[0].summary+"It is currently "+data1.currently.temperature+" degree out. There is a "+data1.currently.precipProbability+" % chance of Precipitation."
+            callback(undefined,forecast)
+        }
+    })
+} 
+module.exports =forecast
