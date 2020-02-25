@@ -4,12 +4,19 @@ const weatherform =document.querySelector('form')
 const Searchbut = document.querySelector('input')
 const message1 = document.querySelector('#message1')
 const message2 = document.querySelector('#message2')
+const message3 = document.querySelector('#day1')
+const message4 = document.querySelector('#day2')
+const message5 = document.querySelector('#day3')
 
 weatherform.addEventListener("submit",(e)=>{
     e.preventDefault()
     
     message1.textContent = 'Loading ......'
     message2.textContent = ''
+    message3.textContent=  ''
+    message4.textContent=  ''
+    message5.textContent=  ''
+
 
 
     const location = Searchbut.value
@@ -22,8 +29,11 @@ weatherform.addEventListener("submit",(e)=>{
             }
             else{
                 console.log(data1.Forecast)
-                message1.textContent = 'Location :'+data1.Location
-                message2.textContent = 'Forecast :'+data1.Forecast
+                message1.textContent = 'Location :'+ data1.Location
+                message2.textContent = 'Forecast :'+ data1.Forecast.today
+                message3.textContent = "Low      High "
+                message4.textContent = "Tomorrow's :  " + data1.Forecast.temperatureHigh[1]+'                 ' + data1.Forecast.temperatureLow[1]
+                message3.textContent = "Day After Tomorrow :  " + data1.Forecast.temperatureHigh[2]+'               '+ data1.Forecast.temperatureLow[2]    
             }
     })
 })
