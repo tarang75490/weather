@@ -1,16 +1,4 @@
 
-// fetch app (supported by client side javacript )
-// fetch('http://localhost:3000/weather?location='+location).then((response) =>{
-//     response.json().then((error,data) =>{
-//             if(error){
-//                 console.log(error)
-//             }
-//             else{
-//                 console.log(data)
-//             }
-//     })
-// })
-
 
 const weatherform =document.querySelector('form')
 const Searchbut = document.querySelector('input')
