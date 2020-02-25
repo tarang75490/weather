@@ -10,7 +10,7 @@ const viewPath = path.join(__dirname,'../templates/views')
 const partialPath = path.join(__dirname,'../templates/partials')
 
 const app = express()
-
+const port = process.env.PORT || 3000
 
 // set handlebar engines and  viewlocation
 app.set('view engine','hbs')
@@ -101,6 +101,6 @@ app.get('/*',(req,res) => {
 
 
 
-app.listen(3000,()=>{
-    console.log('Port 3000 is ready to be executed')
+app.listen(port,()=>{
+    console.log('Port '+port+'is ready to be executed')
 })
