@@ -2,6 +2,7 @@
 const request  =require('request')
 
 const  forecast = (latitude,longitude,callback) => {
+    console.log(longitude)
     const weatherUrl = 'https://api.darksky.net/forecast/cce3c288a60191473685505eafcc0624/'+latitude+','+longitude+'?units=si'
     request({url : weatherUrl , json:true},(error,response) =>{
         if(error){

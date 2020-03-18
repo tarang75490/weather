@@ -61,6 +61,22 @@ app.get('/help/*',(req,res) => {
 
 
 // static page
+app.get('/current-weather',(req,res) =>{
+    console.log(req.query)
+    forecast(req.query.latitude,req.query.longitude,(error,data)=>{
+        if (error) 
+        {
+            return res.send(error)
+        }
+        else{
+            res.send(
+                {
+                    Forecast:data
+                }
+            )
+        }
+    })
+})
 app.get('/weather',(req,res) =>{
     //res.send('Weather Page')
     if ( !req.query.location ){
