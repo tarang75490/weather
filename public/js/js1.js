@@ -29,7 +29,7 @@ button.addEventListener('click',(e)=>{
 
 
                 $.ajax({
-                    url:'http://localhost:3000/current-weather?longitude='+location.longitude+'&latitude='+location.latitude,
+                    url:'/current-weather?longitude='+location.longitude+'&latitude='+location.latitude,
                     method:'GET',
                     dataType:'json',
                     success:function(data1){
